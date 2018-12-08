@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from './Hero'
 
-const Home = () => {
+const Home = data => {
   return (
     <div>
       <Hero />

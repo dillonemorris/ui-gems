@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Object Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./ObjectSans-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Object Sans';
+  font-style: italic;
+  font-weight: 500;
+  src: url('./ObjectSans-Slanted.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Object Sans';
+  font-style: bold;
+  font-weight: 800;
+  src: url('./ObjectSans-Heavy.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Object Sans';
+  font-style: italic;
+  font-weight: 800;
+  src: url('./ObjectSans-HeavySlanted.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./Overpass-Regular.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./Overpass-SemiBold.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./Roboto-Regular.ttf') format('ttf');
+}
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./Roboto-Medium.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./Roboto-Bold.ttf') format('ttf');
+}

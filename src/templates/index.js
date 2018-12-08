@@ -3,15 +3,23 @@ import React, { Component } from 'react'
 import Layout from '../components/Layout'
 import Home from '../components/Home'
 
-class Gems extends Component {
+class Index extends Component {
   render() {
-    // const { data } = this.props
+    const { data } = this.props
     return (
       <Layout>
-        <Home />
+        <Home data={data} />
       </Layout>
     )
   }
 }
 
-export default Gems
+export const query = graphql`
+  query indexQuery {
+    contentfulHome {
+      heroText
+    }
+  }
+`
+
+export default Index
