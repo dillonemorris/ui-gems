@@ -28,7 +28,6 @@ class Index extends Component {
   state = {
     filteredPosts: [],
     activeFilter: null,
-    activeTab: false,
   }
 
   componentDidMount() {
@@ -47,7 +46,6 @@ class Index extends Component {
     this.setState({
       filteredPosts: displayPosts,
       activeFilter: filter,
-      activeTab: true,
     })
   }
 
@@ -58,7 +56,7 @@ class Index extends Component {
       <Layout>
         <Hero />
         <FilterBar
-          activeTab={this.state.activeTab}
+          activeFilter={this.state.activeFilter}
           handleFilterClick={this.handleFilterClick}
         />
         <PostGrid>
