@@ -27,7 +27,6 @@ const Img = styled.img`
 const PostCard = ({ image, title }) => {
   return (
     <Card>
-      {console.log(image)}
       <Img src={image.src} alt="" />
     </Card>
   )

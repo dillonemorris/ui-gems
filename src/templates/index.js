@@ -10,7 +10,7 @@ const PostGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   grid-gap: 20px;
-  padding: 100px 20px;
+  padding: 40px 20px;
   max-width: 1120px;
   justify-items: center;
   margin: auto;
@@ -27,16 +27,28 @@ const PostGrid = styled.div`
 class Index extends Component {
   state = {
     filteredPosts: [],
-    activeFilter: 'Sign in',
+    activeFilter: null,
+    activeTab: false,
+  }
+
+  componentDidMount() {
+    const posts = this.props.data.allContentfulPost.edges
+    const defaultPosts = posts.filter(
+      ({ node: post }) => post.filter === 'Sign in'
+    )
+    this.setState({ filteredPosts: defaultPosts, activeFilter: 'Sign in' })
   }
 
   handleFilterClick = filter => {
     const posts = this.props.data.allContentfulPost.edges
-    console.log(posts)
     const displayPosts = posts.filter(
       ({ node: post }) => post.filter === filter
     )
-    this.setState({ filteredPosts: displayPosts, activeFilter: filter })
+    this.setState({
+      filteredPosts: displayPosts,
+      activeFilter: filter,
+      activeTab: true,
+    })
   }
 
   render() {
@@ -45,7 +57,10 @@ class Index extends Component {
     return (
       <Layout>
         <Hero />
-        <FilterBar handleFilterClick={this.handleFilterClick} />
+        <FilterBar
+          activeTab={this.state.activeTab}
+          handleFilterClick={this.handleFilterClick}
+        />
         <PostGrid>
           {filteredPosts.map(({ node: post }, i) => {
             return (
