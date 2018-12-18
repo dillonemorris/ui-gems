@@ -44,7 +44,21 @@ class Index extends Component {
     )
     this.setState({ filteredPosts: defaultPosts, activeFilter: 'Sign in' })
 
-    window.addEventListener('scroll', this.debounce(this.checkSlide))
+    const checkSlide = () => {
+      const el = document.querySelector('#target')
+
+      if (el.getBoundingClientRect().bottom <= 0) {
+        this.setState({
+          isScrolled: true,
+        })
+      } else if (el.getBoundingClientRect().bottom >= 0) {
+        this.setState({
+          isScrolled: false,
+        })
+      }
+    }
+
+    window.addEventListener('scroll', checkSlide)
   }
 
   handleFilterClick = filter => {
@@ -71,20 +85,6 @@ class Index extends Component {
       clearTimeout(timeout)
       timeout = setTimeout(later, wait)
       if (callNow) func.apply(context, args)
-    }
-  }
-
-  checkSlide = e => {
-    const el = document.querySelector('#target')
-
-    if (el.getBoundingClientRect().bottom <= 0) {
-      this.setState({
-        isScrolled: true,
-      })
-    } else if (el.getBoundingClientRect().bottom >= 0) {
-      this.setState({
-        isScrolled: false,
-      })
     }
   }
 
