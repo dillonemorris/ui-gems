@@ -58,7 +58,7 @@ class Index extends Component {
       }
     }
 
-    window.addEventListener('scroll', checkSlide)
+    window.addEventListener('scroll', this.debounce(checkSlide))
   }
 
   handleFilterClick = filter => {
