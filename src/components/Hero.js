@@ -84,7 +84,7 @@ const Inner = styled.div`
 
 const Hero = props => {
   return (
-    <HeroContainer>
+    <HeroContainer id="target">
       <HeroLeft>
         <Inner>
           <Logo>

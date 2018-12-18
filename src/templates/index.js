@@ -15,6 +15,12 @@ const PostGrid = styled.div`
   justify-items: center;
   margin: auto;
 
+  ${props =>
+    props.isScrolled &&
+    `
+    padding-top: 108px;
+`};
+
   @media (min-width: 860px) {
     grid-auto-rows: 360px;
   }
@@ -28,6 +34,7 @@ class Index extends Component {
   state = {
     filteredPosts: [],
     activeFilter: null,
+    isScrolled: false,
   }
 
   componentDidMount() {
@@ -36,6 +43,8 @@ class Index extends Component {
       ({ node: post }) => post.filter === 'Sign in'
     )
     this.setState({ filteredPosts: defaultPosts, activeFilter: 'Sign in' })
+
+    window.addEventListener('scroll', this.debounce(this.checkSlide))
   }
 
   handleFilterClick = filter => {
@@ -49,17 +58,48 @@ class Index extends Component {
     })
   }
 
+  debounce = (func, wait = 20, immediate = true) => {
+    var timeout
+    return function() {
+      let context = this
+      let args = arguments
+      let later = function() {
+        timeout = null
+        if (!immediate) func.apply(context, args)
+      }
+      let callNow = immediate && !timeout
+      clearTimeout(timeout)
+      timeout = setTimeout(later, wait)
+      if (callNow) func.apply(context, args)
+    }
+  }
+
+  checkSlide = e => {
+    const el = document.querySelector('#target')
+
+    if (el.getBoundingClientRect().bottom <= 0) {
+      this.setState({
+        isScrolled: true,
+      })
+    } else if (el.getBoundingClientRect().bottom >= 0) {
+      this.setState({
+        isScrolled: false,
+      })
+    }
+  }
+
   render() {
-    const { filteredPosts } = this.state
+    const { filteredPosts, isScrolled } = this.state
 
     return (
       <Layout>
         <Hero />
         <FilterBar
+          isScrolled={this.state.isScrolled}
           activeFilter={this.state.activeFilter}
           handleFilterClick={this.handleFilterClick}
         />
-        <PostGrid>
+        <PostGrid isScrolled={isScrolled}>
           {filteredPosts.map(({ node: post }, i) => {
             return (
               <PostCard

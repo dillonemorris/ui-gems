@@ -4,10 +4,18 @@ import classNames from 'classnames'
 
 const Container = styled.div`
   width: 100%;
-  padding: 0px 0px 0px 0px;
+  background-color: #fff;
   box-shadow: 0 16px 16px rgba(103, 110, 144, 0.05),
     0 8px 8px rgba(103, 110, 144, 0.05), 0 4px 4px rgba(103, 110, 144, 0.05),
     0 2px 2px rgba(103, 110, 144, 0.05);
+
+  ${props =>
+    props.isScrolled &&
+    `
+    position: fixed;
+    top: 0;
+    z-index: 2;
+`};
 `
 
 const Inner = styled.div`
@@ -33,7 +41,7 @@ const Inner = styled.div`
 `
 
 const Filter = styled.div`
-  padding: 20px;
+  padding: 26px 20px 24px 20px;
 `
 
 const filters = [
@@ -48,9 +56,9 @@ const filters = [
   'Checkout',
 ]
 
-const FilterBar = ({ handleFilterClick, activeFilter }) => {
+const FilterBar = ({ handleFilterClick, activeFilter, isScrolled }) => {
   return (
-    <Container>
+    <Container isScrolled={isScrolled}>
       <Inner>
         {filters.map(filter => (
           <Filter
