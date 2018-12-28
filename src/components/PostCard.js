@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
 import Modal from 'styled-react-modal'
-import posed from 'react-pose'
 
 const Card = styled.div`
   box-shadow: 0 16px 16px rgba(103, 110, 144, 0.05),
@@ -35,12 +34,18 @@ const ModalImg = styled.img`
 const StyledModal = Modal.styled`
   box-shadow: 0 0 0 0.5px rgba(3,42,60,.2), 0 0 0 1px rgba(3,42,60,.1), 0 14px 28px rgba(3,42,60,.25), 0 10px 10px rgba(3,42,60,.22);
   border-radius: 6px;
-  transition: 0.3s all ease;
   width: 55%;
   display: flex;
   flex-direction: column;
   background-color: ${props => props.theme.colors.gray100};
   margin: auto;
+  animation-name: modalFade;
+  animation-duration: .5s;
+
+  @keyframes modalFade {
+    from {transform: translateY(-10%);opacity: 0;}
+  to {transform: translateY(0);opacity: 1;}
+  }
 `
 
 const Button = styled.button`
@@ -48,6 +53,18 @@ const Button = styled.button`
   right: 80px;
   top: 0;
   position: fixed;
+
+  animation-name: modalFade;
+  animation-duration: 0.6s;
+
+  @keyframes modalFade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   &:hover {
     cursor: pointer;
