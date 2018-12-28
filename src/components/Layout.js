@@ -1,11 +1,23 @@
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
+import { ModalProvider } from 'styled-react-modal'
 import Helmet from 'react-helmet'
 import favicon from '../images/favicon.ico'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 import config from '../utils/siteConfig'
 import Footer from '../components/Footer'
+
+const SpecialModalBackground = styled.div`
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  background: hsla(0, 0%, 100%, 0.96);
+`
 
 const Template = ({ children }) => {
   return (
@@ -18,10 +30,12 @@ const Template = ({ children }) => {
       </Helmet>
 
       <ThemeProvider theme={theme}>
-        <>
-          <div className="siteContent">{children}</div>
-          <Footer />
-        </>
+        <ModalProvider backgroundComponent={SpecialModalBackground}>
+          <>
+            <div className="siteContent">{children}</div>
+            <Footer />
+          </>
+        </ModalProvider>
       </ThemeProvider>
       <GlobalStyle />
     </div>

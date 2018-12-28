@@ -51,7 +51,7 @@ const filters = [
   'Hero',
   'Pricing',
   'Features',
-  'FAQs',
+  "FAQ's",
   'Blog',
   'Tables',
   'Modal',
