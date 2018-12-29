@@ -104,8 +104,9 @@ class Index extends Component {
             return (
               <PostCard
                 key={i}
+                filter={post.filter}
                 image={post.heroImage.ogimg}
-                imageTitle={post.heroImage.ogimg.title}
+                title={post.title}
               />
             )
           })}
