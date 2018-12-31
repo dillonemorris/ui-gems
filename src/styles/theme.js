@@ -6,6 +6,7 @@ const theme = {
     highlight: '#8FFBE4', // highlighter green
     green: '#C1DEE2',
     gray100: '#F4F4F4',
+    gray150: '#edecf2',
     gray200: '#D8D8DB',
     gray300: '#C0BEC9',
     gray400: '#ABAAB6',

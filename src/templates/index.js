@@ -103,6 +103,7 @@ class Index extends Component {
           {filteredPosts.map(({ node: post }, i) => {
             return (
               <PostCard
+                activeFilter={this.state.activeFilter}
                 key={i}
                 filter={post.filter}
                 image={post.heroImage.ogimg}
@@ -139,6 +140,9 @@ export const query = graphql`
               src
               width
               height
+            }
+            sizes(maxWidth: 1800) {
+              ...GatsbyContentfulSizes_withWebp_noBase64
             }
           }
           filter

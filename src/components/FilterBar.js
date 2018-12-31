@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import classNames from 'classnames'
+import filters from '../data/filters'
 
 const Container = styled.div`
   width: 100%;
@@ -28,10 +29,11 @@ const Inner = styled.div`
   padding: 0px;
   grid-template-columns: repeat(9, 1fr);
   margin: auto;
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.gray800};
   font-family: ${props => props.theme.fonts.body};
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
+  /* letter-spacing: 0.1px; */
 
   :hover {
     cursor: pointer;
@@ -39,24 +41,13 @@ const Inner = styled.div`
 
   .active {
     border-bottom: 3px solid ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.primary};
   }
 `
 
 const Filter = styled.div`
   padding: 26px 20px 24px 20px;
 `
-
-const filters = [
-  'Sign in',
-  'Hero',
-  'Pricing',
-  'Features',
-  "FAQ's",
-  'Blog',
-  'Tables',
-  'Modal',
-  'Checkout',
-]
 
 const FilterBar = ({ handleFilterClick, activeFilter, isScrolled }) => {
   return (
@@ -65,12 +56,12 @@ const FilterBar = ({ handleFilterClick, activeFilter, isScrolled }) => {
         {filters.map(filter => (
           <Filter
             className={classNames({
-              active: activeFilter === filter,
+              active: activeFilter === filter.name,
             })}
-            key={filter}
-            onClick={() => handleFilterClick(filter)}
+            key={filter.name}
+            onClick={() => handleFilterClick(filter.name)}
           >
-            {filter}
+            {filter.name}
           </Filter>
         ))}
       </Inner>

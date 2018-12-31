@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
 import Modal from 'styled-react-modal'
+import filters from '../data/filters'
 
 const Card = styled.div`
   box-shadow: 0 16px 16px rgba(103, 110, 144, 0.05),
@@ -33,7 +34,7 @@ const ModalImg = styled.img`
 `
 
 const StyledModal = Modal.styled`
-  box-shadow: 0 0 0 0.5px rgba(3,42,60,.2), 0 0 0 1px rgba(3,42,60,.1), 0 14px 28px rgba(3,42,60,.25), 0 10px 10px rgba(3,42,60,.22);
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, .1), 0 0 0 1px rgba(0, 0, 0,.12), 0 14px 28px rgba(0, 0, 0, .15), 0 10px 10px rgba(0, 0, 0, .12);
   border-radius: 6px;
   width: 90%;
   display: flex;
@@ -126,7 +127,7 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   background-color: #f7f7f7;
-  padding: 20px 20px;
+  padding: 16px 20px;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
 `
@@ -145,10 +146,13 @@ const Title = styled.div`
 const IconContainer = styled.div`
   display: flex;
   margin-right: 12px;
+  border-radius: 100%;
+  background-color: ${props => props.theme.colors.gray150};
+  padding: 10px;
 `
 
 const SubTitle = styled.div`
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.2px;
@@ -165,11 +169,12 @@ const ModalButton = styled.button`
   margin-left: auto;
   border-radius: 6px;
   padding: 10px 38px;
-  background-color: ${props => props.theme.colors.green};
+  border: 2px solid ${props => props.theme.colors.gray150};
+  background-color: white;
   font-family: ${props => props.theme.fonts.body};
   font-size: 14px;
   font-weight: 500;
-  color: ${props => props.theme.colors.gray700};
+  color: ${props => props.theme.colors.gray500};
   letter-spacing: 0.3px;
 `
 
@@ -189,30 +194,23 @@ class PostCard extends Component {
   }
 
   render() {
-    const { image, title, filter } = this.props
-    console.log(title)
+    const { image, title, filter, activeFilter } = this.props
     return (
       <Fragment>
         <StyledModal
-          className="box"
-          pose={this.state.isVisible ? 'visible' : 'hidden'}
           allowScroll
+          className="box"
           isOpen={this.state.isOpen}
           onBackgroundClick={this.toggleModal}
           onEscapeKeydown={this.toggleModal}
         >
           <Header>
-            <IconContainer>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="28"
-                height="28"
-                fill="#8E8C9A"
-              >
-                <path d="M9 12A5 5 0 1 1 9 2a5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm8 11a1 1 0 0 1-2 0v-2a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2a1 1 0 0 1-2 0v-2a5 5 0 0 1 5-5h5a5 5 0 0 1 5 5v2zm-1.3-10.7l1.3 1.29 3.3-3.3a1 1 0 0 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-2-2a1 1 0 0 1 1.4-1.42z" />
-              </svg>
-            </IconContainer>
+            {filters.map(
+              filter =>
+                activeFilter === filter.name && (
+                  <IconContainer>{filter.icon}</IconContainer>
+                )
+            )}
             <Title>
               {title}
               <SubTitle>{filter}</SubTitle>
@@ -223,7 +221,7 @@ class PostCard extends Component {
                 viewBox="0 0 24 24"
                 width="24"
                 height="20"
-                fill="#53515C"
+                fill="#8E8C9A"
                 style={{ marginRight: '6px' }}
               >
                 <path d="M19 6.41L8.7 16.71a1 1 0 1 1-1.4-1.42L17.58 5H14a1 1 0 0 1 0-2h6a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V6.41zM17 14a1 1 0 0 1 2 0v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7c0-1.1.9-2 2-2h5a1 1 0 0 1 0 2H5v12h12v-5z" />
