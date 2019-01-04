@@ -1,37 +1,32 @@
 import React, { Component, Fragment } from 'react'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
 import Modal from 'styled-react-modal'
 import filters from '../data/filters'
 
 const Card = styled.div`
+  /* position: static; */
+  width: 100%;
   box-shadow: 0 16px 16px rgba(103, 110, 144, 0.05),
     0 8px 8px rgba(103, 110, 144, 0.05), 0 4px 4px rgba(103, 110, 144, 0.05),
     0 2px 2px rgba(103, 110, 144, 0.05);
   border-radius: 6px;
   transition: 0.3s all ease;
 
-  :hover {
+  &:hover {
     box-shadow: 0 20px 20px rgba(103, 110, 144, 0.08),
       0 12px 12px rgba(103, 110, 144, 0.08), 0 4px 4px rgba(103, 110, 144, 0.08),
       0 2px 2px rgba(103, 110, 144, 0.08);
-  }
-`
-
-const Img = styled.img`
-  height: 100%;
-  border-radius: 6px;
-
-  :hover {
     cursor: pointer;
   }
 `
 
-const ModalImg = styled.img`
-  border-bottom-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  height: 100%;
-  width: 100%;
-`
+// const ModalImg = styled.img`
+//   border-bottom-right-radius: 6px;
+//   border-bottom-left-radius: 6px;
+//   height: 100%;
+//   width: 100%;
+// `
 
 const StyledModal = Modal.styled`
   box-shadow: 0 0 0 0.5px rgba(0, 0, 0, .1), 0 0 0 1px rgba(0, 0, 0,.12), 0 14px 28px rgba(0, 0, 0, .15), 0 10px 10px rgba(0, 0, 0, .12);
@@ -194,7 +189,7 @@ class PostCard extends Component {
   }
 
   render() {
-    const { image, title, filter, activeFilter } = this.props
+    const { heroImage, title, filter, activeFilter } = this.props
     return (
       <Fragment>
         <StyledModal
@@ -229,7 +224,7 @@ class PostCard extends Component {
               Visit site
             </ModalButton>
           </Header>
-          <ModalImg src={image.src} alt={title} />
+          <Img fluid={heroImage.fluid} />
           <Button isOpen={this.state.isOpen} onClick={this.toggleModal}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -243,7 +238,15 @@ class PostCard extends Component {
           </Button>
         </StyledModal>
         <Card onClick={this.toggleModal}>
-          <Img src={image.src} alt={title} />
+          <Img
+            fadeIn={false}
+            style={{ height: '100%' }}
+            imgStyle={{
+              borderRadius: '6px',
+              height: '100%',
+            }}
+            fluid={heroImage.fluid}
+          />
         </Card>
       </Fragment>
     )

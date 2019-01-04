@@ -99,19 +99,21 @@ class Index extends Component {
           activeFilter={this.state.activeFilter}
           handleFilterClick={this.handleFilterClick}
         />
-        <PostGrid isScrolled={isScrolled}>
-          {filteredPosts.map(({ node: post }, i) => {
-            return (
-              <PostCard
-                activeFilter={this.state.activeFilter}
-                key={i}
-                filter={post.filter}
-                image={post.heroImage.ogimg}
-                title={post.title}
-              />
-            )
-          })}
-        </PostGrid>
+        <div>
+          <PostGrid isScrolled={isScrolled}>
+            {filteredPosts.map(({ node: post }, i) => {
+              return (
+                <PostCard
+                  activeFilter={this.state.activeFilter}
+                  key={i}
+                  filter={post.filter}
+                  heroImage={post.heroImage}
+                  title={post.title}
+                />
+              )
+            })}
+          </PostGrid>
+        </div>
       </Layout>
     )
   }
@@ -136,13 +138,8 @@ export const query = graphql`
           }
           heroImage {
             title
-            ogimg: resize(width: 1800) {
-              src
-              width
-              height
-            }
-            sizes(maxWidth: 1800) {
-              ...GatsbyContentfulSizes_withWebp_noBase64
+            fluid(maxWidth: 1200) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
           filter

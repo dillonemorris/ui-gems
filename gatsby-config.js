@@ -1,4 +1,5 @@
 const config = require('./src/utils/siteConfig')
+
 let contentfulConfig
 
 try {
@@ -74,8 +75,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-sitemap',
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
