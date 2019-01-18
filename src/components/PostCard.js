@@ -21,13 +21,6 @@ const Card = styled.div`
   }
 `
 
-// const ModalImg = styled.img`
-//   border-bottom-right-radius: 6px;
-//   border-bottom-left-radius: 6px;
-//   height: 100%;
-//   width: 100%;
-// `
-
 const StyledModal = Modal.styled`
   box-shadow: 0 0 0 0.5px rgba(0, 0, 0, .1), 0 0 0 1px rgba(0, 0, 0,.12), 0 14px 28px rgba(0, 0, 0, .15), 0 10px 10px rgba(0, 0, 0, .12);
   border-radius: 6px;
@@ -171,6 +164,17 @@ const ModalButton = styled.button`
   font-weight: 500;
   color: ${props => props.theme.colors.gray500};
   letter-spacing: 0.3px;
+  transition: 0.3s all ease;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #fafafa;
+  }
+`
+
+const Link = styled.a`
+  text-decoration: none;
+  margin-left: auto;
 `
 
 class PostCard extends Component {
@@ -189,7 +193,7 @@ class PostCard extends Component {
   }
 
   render() {
-    const { heroImage, title, filter, activeFilter } = this.props
+    const { heroImage, title, filter, activeFilter, link } = this.props
     return (
       <Fragment>
         <StyledModal
@@ -203,26 +207,28 @@ class PostCard extends Component {
             {filters.map(
               filter =>
                 activeFilter === filter.name && (
-                  <IconContainer>{filter.icon}</IconContainer>
+                  <IconContainer key={filter.name}>{filter.icon}</IconContainer>
                 )
             )}
             <Title>
               {title}
               <SubTitle>{filter}</SubTitle>
             </Title>
-            <ModalButton>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="20"
-                fill="#8E8C9A"
-                style={{ marginRight: '6px' }}
-              >
-                <path d="M19 6.41L8.7 16.71a1 1 0 1 1-1.4-1.42L17.58 5H14a1 1 0 0 1 0-2h6a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V6.41zM17 14a1 1 0 0 1 2 0v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7c0-1.1.9-2 2-2h5a1 1 0 0 1 0 2H5v12h12v-5z" />
-              </svg>
-              Visit site
-            </ModalButton>
+            <Link href={link} target="_blank" rel="noopener noreferrer">
+              <ModalButton>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="20"
+                  fill="#8E8C9A"
+                  style={{ marginRight: '6px' }}
+                >
+                  <path d="M19 6.41L8.7 16.71a1 1 0 1 1-1.4-1.42L17.58 5H14a1 1 0 0 1 0-2h6a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V6.41zM17 14a1 1 0 0 1 2 0v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7c0-1.1.9-2 2-2h5a1 1 0 0 1 0 2H5v12h12v-5z" />
+                </svg>
+                Visit site
+              </ModalButton>
+            </Link>
           </Header>
           <Img fluid={heroImage.fluid} />
           <Button isOpen={this.state.isOpen} onClick={this.toggleModal}>

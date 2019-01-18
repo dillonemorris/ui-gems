@@ -105,7 +105,8 @@ class Index extends Component {
               return (
                 <PostCard
                   activeFilter={this.state.activeFilter}
-                  key={i}
+                  key={post.link}
+                  link={post.link}
                   filter={post.filter}
                   heroImage={post.heroImage}
                   title={post.title}
@@ -143,6 +144,7 @@ export const query = graphql`
             }
           }
           filter
+          link
         }
       }
     }
