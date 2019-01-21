@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Gem from '../images/purple-gem.png'
+import PurpleLightLogo from '../images/PurpleLightLogo'
+import DarkLogo from '../images/DarkLogo'
 
 const Wrapper = styled.div`
   display: flex;
@@ -8,25 +9,29 @@ const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   padding: 40px;
-  background-color: #f7f7f7;
+  background-color: ${props => props.theme.colors.filterBar};
 `
 
-const LogoText = styled.div`
-  color: ${props => props.theme.colors.primary};
-  font-family: Overpass;
-  font-weight: 700;
-  font-size: 18px;
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const LogoText = styled.h3`
+  color: ${props => props.theme.colors.accent};
+  font-family: ${props => props.theme.fonts.secondary};
+  letter-spacing: 0.6px;
+  font-size: 20px;
+  font-weight: 600;
   padding-left: 6px;
 `
 
-const Img = styled.img`
-  display: flex;
-`
-
-const Footer = () => (
+const Footer = ({ isLight }) => (
   <Wrapper>
-    <Img src={Gem} style={{ width: '30px' }} alt="UI Gems" />
-    <LogoText>UI Gems</LogoText>
+    <Logo>
+      {isLight ? <PurpleLightLogo /> : <DarkLogo />}
+      <LogoText>UI Gems</LogoText>
+    </Logo>
   </Wrapper>
 )
 

@@ -1,11 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import Diamond from '../images/diamond.png'
-import Humans from '../images/humans.png'
+import LightArrow from '../images/LightArrow'
+import DarkArrow from '../images/DarkArrow'
+import LightLogo from '../images/LightLogo'
+import DarkLogo from '../images/DarkLogo'
+import LightHero from '../images/LightHero'
+import DarkHero from '../images/DarkHero'
 
 const HeroContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  background-color: ${props => props.theme.colors.secondaryBackground};
 
   @media (min-width: 700px) {
     grid-template-columns: 1fr 1fr;
@@ -13,9 +18,9 @@ const HeroContainer = styled.div`
 `
 
 const HeroLeft = styled.div`
-  background-color: ${props => props.theme.colors.primary};
   display: flex;
   justify-content: center;
+  background-color: ${props => props.theme.colors.primary};
 
   @media (min-width: 700px) {
     justify-content: flex-end;
@@ -23,7 +28,7 @@ const HeroLeft = styled.div`
 `
 
 const HeroRight = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.secondaryBackground};
   max-width: 600px;
   display: none;
   align-items: flex-end;
@@ -34,7 +39,7 @@ const HeroRight = styled.div`
   }
 `
 const Heading = styled.h1`
-  color: #fff;
+  color: ${props => props.theme.colors.heroText};
   font-size: 32px;
   font-family: ${props => props.theme.fonts.display};
   font-weight: 500;
@@ -60,7 +65,7 @@ const Logo = styled.div`
 `
 
 const LogoText = styled.h3`
-  color: #fff;
+  color: ${props => props.theme.colors.heroText};
   font-family: ${props => props.theme.fonts.secondary};
   letter-spacing: 0.6px;
   font-size: 20px;
@@ -68,7 +73,7 @@ const LogoText = styled.h3`
   padding-left: 6px;
 `
 
-const SubHeading = styled.h3`
+const CallToAction = styled.h3`
   color: ${props => props.theme.colors.highlight};
   font-size: 18px;
   font-family: ${props => props.theme.fonts.secondary};
@@ -82,42 +87,27 @@ const Inner = styled.div`
   max-width: 600px;
 `
 
-const Hero = props => {
+const Hero = ({ isLight }) => {
   return (
     <HeroContainer id="target">
       <HeroLeft>
         <Inner>
           <Logo>
-            <img style={{ width: '28px' }} src={Diamond} alt="diamond-logo" />
+            {isLight ? <LightLogo /> : <DarkLogo />}
             <LogoText>UI Gems</LogoText>
           </Logo>
           <Heading>
             Bringing you the <span>best of the best</span> UI designs on the
             web.
           </Heading>
-          <SubHeading>
-            Get inspired{' '}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              style={{ marginLeft: '6px' }}
-              width="17"
-              height="17"
-              fill="#8FFBE4"
-            >
-              <path d="M11 18.59V3a1 1 0 0 1 2 0v15.59l5.3-5.3a1 1 0 0 1 1.4 1.42l-7 7a1 1 0 0 1-1.4 0l-7-7a1 1 0 0 1 1.4-1.42l5.3 5.3z" />
-            </svg>
-          </SubHeading>
+          <CallToAction>
+            Get inspired
+            {isLight ? <LightArrow /> : <DarkArrow />}
+          </CallToAction>
         </Inner>
       </HeroLeft>
       <HeroRight>
-        <div>
-          <img
-            style={{ width: '380px' }}
-            src={Humans}
-            alt="humans-illustration"
-          />
-        </div>
+        <div>{isLight ? <LightHero /> : <DarkHero />}</div>
       </HeroRight>
     </HeroContainer>
   )

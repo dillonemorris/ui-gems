@@ -1,10 +1,13 @@
 // import { graphql } from 'gatsby'
 import React, { Component } from 'react'
 import Layout from '../components/Layout'
-import Hero from '../components/Hero'
 import FilterBar from '../components/FilterBar'
 import PostCard from '../components/PostCard'
 import styled from 'styled-components'
+
+const GridContainer = styled.div`
+  background-color: ${props => props.theme.colors.tertiaryBackground};
+`
 
 const PostGrid = styled.div`
   display: grid;
@@ -72,34 +75,17 @@ class Index extends Component {
     })
   }
 
-  debounce = (func, wait = 20, immediate = true) => {
-    var timeout
-    return function() {
-      let context = this
-      let args = arguments
-      let later = function() {
-        timeout = null
-        if (!immediate) func.apply(context, args)
-      }
-      let callNow = immediate && !timeout
-      clearTimeout(timeout)
-      timeout = setTimeout(later, wait)
-      if (callNow) func.apply(context, args)
-    }
-  }
-
   render() {
     const { filteredPosts, isScrolled } = this.state
 
     return (
       <Layout>
-        <Hero />
         <FilterBar
           isScrolled={this.state.isScrolled}
           activeFilter={this.state.activeFilter}
           handleFilterClick={this.handleFilterClick}
         />
-        <div>
+        <GridContainer>
           <PostGrid isScrolled={isScrolled}>
             {filteredPosts.map(({ node: post }, i) => {
               return (
@@ -114,7 +100,7 @@ class Index extends Component {
               )
             })}
           </PostGrid>
-        </div>
+        </GridContainer>
       </Layout>
     )
   }

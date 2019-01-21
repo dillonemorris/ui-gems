@@ -5,11 +5,8 @@ import Modal from 'styled-react-modal'
 import filters from '../data/filters'
 
 const Card = styled.div`
-  /* position: static; */
   width: 100%;
-  box-shadow: 0 16px 16px rgba(103, 110, 144, 0.05),
-    0 8px 8px rgba(103, 110, 144, 0.05), 0 4px 4px rgba(103, 110, 144, 0.05),
-    0 2px 2px rgba(103, 110, 144, 0.05);
+  box-shadow: ${props => props.theme.boxShadow.default};
   border-radius: 6px;
   transition: 0.3s all ease;
 

@@ -5,12 +5,11 @@ import filters from '../data/filters'
 
 const Container = styled.div`
   width: 100%;
-  padding: 0px 0px 0px 0px;
-  background-color: #fff;
-  box-shadow: 0 16px 16px rgba(103, 110, 144, 0.05),
-    0 8px 8px rgba(103, 110, 144, 0.05), 0 4px 4px rgba(103, 110, 144, 0.05),
-    0 2px 2px rgba(103, 110, 144, 0.05);
+  padding: 0px;
+  background-color: ${props => props.theme.colors.secondaryBackground};
+  box-shadow: ${props => props.theme.boxShadow.default};
   margin-top: 0px;
+  background-color: ${props => props.theme.colors.filterBar};
 
   ${props =>
     props.isScrolled &&
@@ -29,19 +28,18 @@ const Inner = styled.div`
   padding: 0px;
   grid-template-columns: repeat(9, 1fr);
   margin: auto;
-  color: ${props => props.theme.colors.gray800};
+  color: ${props => props.theme.colors.body};
   font-family: ${props => props.theme.fonts.body};
   font-size: 14px;
   font-weight: 500;
-  /* letter-spacing: 0.1px; */
 
   :hover {
     cursor: pointer;
   }
 
   .active {
-    border-bottom: 3px solid ${props => props.theme.colors.primary};
-    color: ${props => props.theme.colors.primary};
+    border-bottom: 3px solid ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.accent};
   }
 `
 
