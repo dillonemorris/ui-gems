@@ -29,8 +29,8 @@ const HeroLeft = styled.div`
 
 const HeroRight = styled.div`
   background-color: ${props => props.theme.colors.secondaryBackground};
-  max-width: 600px;
   display: none;
+  max-width: 600px;
   align-items: flex-end;
   justify-content: center;
 
@@ -38,6 +38,11 @@ const HeroRight = styled.div`
     display: flex;
   }
 `
+
+const IllustrationContainer = styled.div`
+  padding: 60px 40px 0px 60px;
+`
+
 const Heading = styled.h1`
   color: ${props => props.theme.colors.heroText};
   font-size: 32px;
@@ -46,8 +51,8 @@ const Heading = styled.h1`
   letter-spacing: 0.6px;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   line-height: 1.4;
-  padding-top: 40px;
-  padding-bottom: 18px;
+  padding-top: 64px;
+  padding-bottom: 32px;
 
   span {
     font-weight: 800;
@@ -75,15 +80,19 @@ const LogoText = styled.h3`
 
 const CallToAction = styled.h3`
   color: ${props => props.theme.colors.highlight};
-  font-size: 18px;
+  font-size: 20px;
   font-family: ${props => props.theme.fonts.secondary};
   letter-spacing: 0.4px;
   display: flex;
   align-content: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const Inner = styled.div`
-  padding: 60px 40px 60px 60px;
+  padding: 60px 40px 0px 60px;
   max-width: 600px;
 `
 
@@ -107,7 +116,9 @@ const Hero = ({ isLight }) => {
         </Inner>
       </HeroLeft>
       <HeroRight>
-        <div>{isLight ? <LightHero /> : <DarkHero />}</div>
+        <IllustrationContainer>
+          {isLight ? <LightHero /> : <DarkHero />}
+        </IllustrationContainer>
       </HeroRight>
     </HeroContainer>
   )

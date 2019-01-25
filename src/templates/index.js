@@ -1,9 +1,9 @@
 // import { graphql } from 'gatsby'
 import React, { Component } from 'react'
 import Layout from '../components/Layout'
+import styled from 'styled-components'
 import FilterBar from '../components/FilterBar'
 import PostCard from '../components/PostCard'
-import styled from 'styled-components'
 
 const GridContainer = styled.div`
   background-color: ${props => props.theme.colors.tertiaryBackground};
@@ -77,6 +77,7 @@ class Index extends Component {
 
   render() {
     const { filteredPosts, isScrolled } = this.state
+    const { isLight } = this.props
 
     return (
       <Layout>
@@ -90,6 +91,7 @@ class Index extends Component {
             {filteredPosts.map(({ node: post }, i) => {
               return (
                 <PostCard
+                  isLight={isLight}
                   activeFilter={this.state.activeFilter}
                   key={post.link}
                   link={post.link}

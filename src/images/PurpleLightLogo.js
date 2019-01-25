@@ -12,7 +12,7 @@ const Checkout = () => (
       <g
         id="Homepage"
         transform="translate(-658.000000, -2034.000000)"
-        fill="#4340C7"
+        fill="#605DEE"
       >
         <g
           id="noun_Diamond_863622"

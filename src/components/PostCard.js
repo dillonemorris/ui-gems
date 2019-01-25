@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import Modal from 'styled-react-modal'
+import ModalIconLight from '../images/ModalIconLight'
 import filters from '../data/filters'
 
 const Card = styled.div`
@@ -111,7 +112,7 @@ const Button = styled.button`
 const Header = styled.div`
   display: flex;
   align-items: center;
-  background-color: #f7f7f7;
+  background-color: ${props => props.theme.colors.secondaryBackground};
   padding: 16px 20px;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
@@ -125,14 +126,14 @@ const Title = styled.div`
   letter-spacing: 0.4px;
   font-weight: 600;
   font-family: ${props => props.theme.fonts.secondary};
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.body};
 `
 
 const IconContainer = styled.div`
   display: flex;
   margin-right: 12px;
   border-radius: 100%;
-  background-color: ${props => props.theme.colors.gray150};
+  background-color: ${props => props.theme.colors.accentGrey};
   padding: 10px;
 `
 
@@ -154,18 +155,18 @@ const ModalButton = styled.button`
   margin-left: auto;
   border-radius: 6px;
   padding: 10px 38px;
-  border: 2px solid ${props => props.theme.colors.gray150};
-  background-color: white;
+  border: 2px solid ${props => props.theme.colors.accentGrey};
+  background-color: ${props => props.theme.colors.btnBackground};
   font-family: ${props => props.theme.fonts.body};
   font-size: 14px;
   font-weight: 500;
-  color: ${props => props.theme.colors.gray500};
+  color: ${props => props.theme.colors.btnColor};
   letter-spacing: 0.3px;
   transition: 0.3s all ease;
 
   &:hover {
     cursor: pointer;
-    background-color: #fafafa;
+    background-color: ${props => props.theme.colors.tertiaryBackground};
   }
 `
 
@@ -190,7 +191,7 @@ class PostCard extends Component {
   }
 
   render() {
-    const { heroImage, title, filter, activeFilter, link } = this.props
+    const { heroImage, title, filter, activeFilter, link, isLight } = this.props
     return (
       <Fragment>
         <StyledModal
@@ -199,6 +200,7 @@ class PostCard extends Component {
           isOpen={this.state.isOpen}
           onBackgroundClick={this.toggleModal}
           onEscapeKeydown={this.toggleModal}
+          isLight={isLight}
         >
           <Header>
             {filters.map(
@@ -213,16 +215,7 @@ class PostCard extends Component {
             </Title>
             <Link href={link} target="_blank" rel="noopener noreferrer">
               <ModalButton>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="20"
-                  fill="#8E8C9A"
-                  style={{ marginRight: '6px' }}
-                >
-                  <path d="M19 6.41L8.7 16.71a1 1 0 1 1-1.4-1.42L17.58 5H14a1 1 0 0 1 0-2h6a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0V6.41zM17 14a1 1 0 0 1 2 0v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7c0-1.1.9-2 2-2h5a1 1 0 0 1 0 2H5v12h12v-5z" />
-                </svg>
+                <ModalIconLight />
                 Visit site
               </ModalButton>
             </Link>
@@ -234,7 +227,7 @@ class PostCard extends Component {
               viewBox="0 0 24 24"
               width="28"
               height="28"
-              fill="#53515C"
+              fill="#ABAAB6"
             >
               <path d="M4.93 19.07A10 10 0 1 1 19.07 4.93 10 10 0 0 1 4.93 19.07zm1.41-1.41A8 8 0 1 0 17.66 6.34 8 8 0 0 0 6.34 17.66zM13.41 12l1.42 1.41a1 1 0 1 1-1.42 1.42L12 13.4l-1.41 1.42a1 1 0 1 1-1.42-1.42L10.6 12l-1.42-1.41a1 1 0 1 1 1.42-1.42L12 10.6l1.41-1.42a1 1 0 1 1 1.42 1.42L13.4 12z" />
             </svg>

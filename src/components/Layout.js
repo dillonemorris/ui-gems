@@ -1,21 +1,14 @@
 import React, { Component } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
-import { ModalProvider } from 'styled-react-modal'
+import { ModalProvider, BaseModalBackground } from 'styled-react-modal'
 import Helmet from 'react-helmet'
 import GlobalStyle from '../styles/global'
 import config from '../utils/siteConfig'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 
-const SpecialModalBackground = styled.div`
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 3;
-  background: hsla(0, 0%, 100%, 0.96);
+const SpecialModalBackground = styled(BaseModalBackground)`
+  background: hsla(0, 0%, 20%, 0.94);
 `
 
 const ButtonContainer = styled.div`
@@ -36,15 +29,20 @@ const Button = styled.button`
   color: ${props => props.theme.colors.accent};
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const lightTheme = {
   colors: {
-    body: '#383740', // Black
+    body: '#383740',
     primary: '#605DEE',
-    accent: '#605DEE', // Purple
-    secondary: '#44BEA4', // Green
-    highlight: '#8FFBE4', // highlighter green
+    accent: '#605DEE',
+    accentGrey: '#edecf2',
+    secondary: '#44BEA4',
+    highlight: '#8FFBE4',
     green: '#C1DEE2',
     gray100: '#F4F4F4',
     gray150: '#edecf2',
@@ -58,6 +56,8 @@ const lightTheme = {
     gray900: '#1E1D2B',
     mainBackground: '#605DEE',
     tertiaryBackground: '#FAFAFA',
+    btnBackground: '#fff',
+    btnColor: '#8E8C9A',
     heroText: '#FFF',
     filterBar: '#fff',
   },
@@ -89,10 +89,11 @@ const lightTheme = {
 const darkTheme = {
   colors: {
     body: '#8FFBE4',
-    primary: '#1E1D2B', // Purple
+    primary: '#1E1D2B',
     secondary: '#44BEA4',
-    accent: '#8FFBE4', // Green
-    highlight: '#9B98FF', // highlighter green
+    accent: '#8FFBE4',
+    accentGrey: '#53515C',
+    highlight: '#9B98FF',
     green: '#C1DEE2',
     gray100: '#F4F4F4',
     gray150: '#edecf2',
@@ -107,6 +108,8 @@ const darkTheme = {
     mainBackground: '#252A33',
     secondaryBackground: '#383740',
     tertiaryBackground: '#1E1D2B',
+    btnBackground: '#53515C',
+    btnColor: '#C0BEC9',
     heroText: '#8FFBE4',
     filterBar: '#383740',
   },
@@ -131,7 +134,7 @@ const darkTheme = {
     default:
       '0 12px 12px rgba(103, 110, 144, 0.15), 0 8px 8px rgba(103, 110, 144, 0.15), 0 4px 4px rgba(103, 110, 144, 0.15), 0 2px 2px rgba(103, 110, 144, 0.15)',
     filterBar:
-      '0 16px 16px rgba(143, 251, 228, 0.6), 0 8px 8px rgba(143, 251, 228, 0.6), 0 4px 4px rgba(143, 251, 228, 0.6), 0 2px 2px rgba(143, 251, 228, 0.6)',
+      '0 16px 16px rgba(143, 251, 228, 0.05), 0 8px 8px rgba(143, 251, 228, 0.05), 0 4px 4px rgba(143, 251, 228, 0.05), 0 2px 2px rgba(143, 251, 228, 0.05)',
   },
 }
 
@@ -155,6 +158,7 @@ class Template extends Component {
   }
 
   render() {
+    const { isLight, title } = this.state
     return (
       <div className="siteRoot">
         <Helmet>
@@ -165,14 +169,17 @@ class Template extends Component {
         </Helmet>
 
         <ThemeProvider theme={this.state.theme}>
-          <ModalProvider backgroundComponent={SpecialModalBackground}>
+          <ModalProvider
+            backgroundComponent={SpecialModalBackground}
+            backgroundProps={isLight}
+          >
             <>
               <ButtonContainer>
-                <Button onClick={this.handleClick}>{this.state.title}</Button>
+                <Button onClick={this.handleClick}>{title}</Button>
               </ButtonContainer>
-              <Hero isLight={this.state.isLight} />
+              <Hero isLight={isLight} />
               <div className="siteContent">{this.props.children}</div>
-              <Footer isLight={this.state.isLight} />
+              <Footer isLight={isLight} />
             </>
           </ModalProvider>
         </ThemeProvider>

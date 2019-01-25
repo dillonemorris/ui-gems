@@ -7,7 +7,7 @@ const Container = styled.div`
   width: 100%;
   padding: 0px;
   background-color: ${props => props.theme.colors.secondaryBackground};
-  box-shadow: ${props => props.theme.boxShadow.default};
+  box-shadow: ${props => props.theme.boxShadow.filterBar};
   margin-top: 0px;
   background-color: ${props => props.theme.colors.filterBar};
 
