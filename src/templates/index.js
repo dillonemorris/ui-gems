@@ -89,6 +89,7 @@ class Index extends Component {
         <GridContainer>
           <PostGrid isScrolled={isScrolled}>
             {filteredPosts.map(({ node: post }, i) => {
+              console.log(filteredPosts)
               return (
                 <PostCard
                   isLight={isLight}
