@@ -127,7 +127,8 @@ class Template extends Component {
 
   handleScrollIntoView = () => {
     const el = document.getElementById('filterBar')
-    const endPosition = el.getBoundingClientRect().top
+    const target = el.getBoundingClientRect().top
+    const endPosition = target + window.scrollY
 
     return window.scrollTo({
       top: endPosition,
