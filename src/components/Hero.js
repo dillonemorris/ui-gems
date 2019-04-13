@@ -7,12 +7,15 @@ import DarkLogo from '../images/DarkLogo'
 import LightHero from '../images/LightHero'
 import DarkHero from '../images/DarkHero'
 
+import ThemeButton from './ThemeButton'
+import ThemeButtonMobile from './ThemeButtonMobile'
+
 const HeroContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   background-color: ${props => props.theme.colors.secondaryBackground};
 
-  @media (min-width: 700px) {
+  @media (min-width: 855px) {
     grid-template-columns: 1fr 1fr;
   }
 `
@@ -30,17 +33,23 @@ const HeroLeft = styled.div`
 const HeroRight = styled.div`
   background-color: ${props => props.theme.colors.secondaryBackground};
   display: none;
+  flex-direction: column;
   max-width: 600px;
   align-items: flex-end;
   justify-content: center;
 
-  @media (min-width: 700px) {
+  @media (min-width: 855px) {
     display: flex;
   }
 `
 
 const IllustrationContainer = styled.div`
-  padding: 60px 40px 0px 60px;
+  padding: 40px 32px 0px 60px;
+  margin-right: 30px;
+
+  @media (min-width: 920px) {
+    padding: 34px 40px 0px 60px;
+  }
 `
 
 const Heading = styled.h1`
@@ -50,8 +59,9 @@ const Heading = styled.h1`
   font-weight: 500;
   letter-spacing: 0.6px;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  line-height: 1.4;
-  padding-top: 64px;
+  line-height: 1.3;
+  padding-right: 0px;
+  padding-top: 32px;
   padding-bottom: 32px;
 
   span {
@@ -59,14 +69,26 @@ const Heading = styled.h1`
     font-style: italic;
   }
 
-  @media (min-width: 700px) {
-    padding-top: 60px;
+  @media (min-width: 855px) {
+    padding-top: 90px;
+    padding-right: 20px;
+  }
+
+  @media (min-width: 1053px) {
+    font-size: 40px;
   }
 `
 
 const Logo = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding-top: 32px;
+
+  @media (min-width: 855px) {
+    padding-top: 0px;
+    justify-content: left;
+  }
 `
 
 const LogoText = styled.h3`
@@ -85,6 +107,13 @@ const CallToAction = styled.h3`
   letter-spacing: 0.4px;
   display: flex;
   align-content: center;
+  justify-content: center;
+  margin-bottom: 48px;
+
+  @media (min-width: 855px) {
+    margin-bottom: 0px;
+    justify-content: left;
+  }
 
   &:hover {
     cursor: pointer;
@@ -92,15 +121,24 @@ const CallToAction = styled.h3`
 `
 
 const Inner = styled.div`
-  padding: 60px 40px 0px 60px;
+  padding: 16px 16px 0px 16px;
   max-width: 600px;
+  margin: auto;
+  text-align: center;
+
+  @media (min-width: 855px) {
+    text-align: left;
+    padding: 34px 40px 0px 60px;
+    margin: 0;
+  }
 `
 
-const Hero = ({ isLight }) => {
+const Hero = ({ isLight, title, handleClick, handleScrollIntoView }) => {
   return (
     <HeroContainer id="target">
       <HeroLeft>
         <Inner>
+          <ThemeButtonMobile handleClick={handleClick} title={title} />
           <Logo>
             {isLight ? <LightLogo /> : <DarkLogo />}
             <LogoText>UI Gems</LogoText>
@@ -109,13 +147,14 @@ const Hero = ({ isLight }) => {
             Bringing you the <span>best of the best</span> UI designs on the
             web.
           </Heading>
-          <CallToAction>
+          <CallToAction onClick={handleScrollIntoView}>
             Get inspired
             {isLight ? <LightArrow /> : <DarkArrow />}
           </CallToAction>
         </Inner>
       </HeroLeft>
       <HeroRight>
+        <ThemeButton handleClick={handleClick} title={title} />
         <IllustrationContainer>
           {isLight ? <LightHero /> : <DarkHero />}
         </IllustrationContainer>

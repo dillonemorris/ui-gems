@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
 import Modal from 'styled-react-modal'
 import ModalIconLight from '../images/ModalIconLight'
 import filters from '../data/filters'
 import Img from 'gatsby-image'
+
+import MobileHeader from './MobileHeader'
 
 const StyledModal = Modal.styled`
   box-shadow: 0 0 0 0.5px rgba(0, 0, 0, .1), 0 0 0 1px rgba(0, 0, 0,.12), 0 14px 28px rgba(0, 0, 0, .15), 0 10px 10px rgba(0, 0, 0, .12);
@@ -96,12 +98,16 @@ const Button = styled.button`
 `
 
 const Header = styled.div`
-  display: flex;
+  display: none;
   align-items: center;
   background-color: ${props => props.theme.colors.secondaryBackground};
   padding: 16px 20px;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
+
+  @media (min-width: 600px) {
+    display: flex;
+  }
 `
 
 const Title = styled.div`
@@ -175,51 +181,54 @@ class PostCardModal extends Component {
       toggleModal,
     } = this.props
     return (
-      <StyledModal
-        allowScroll
-        className="box"
-        isOpen={isOpen}
-        onBackgroundClick={onBackgroundClick}
-        onEscapeKeydown={onBackgroundClick}
-        isLight={isLight}
-      >
-        <button style={{ backgroundColor: 'cornflowerblue', color: '#fafafa' }}>
-          previous
-        </button>
-        <Header>
-          {filters.map(
-            filter =>
-              activeFilter === filter.name && (
-                <IconContainer key={filter.name}>{filter.icon}</IconContainer>
-              )
-          )}
-          <Title>
-            {title}
-            <SubTitle>{filter}</SubTitle>
-          </Title>
-          <Link href={link} target="_blank" rel="noopener noreferrer">
-            <ModalButton>
-              <ModalIconLight />
-              Visit site
-            </ModalButton>
-          </Link>
-        </Header>
-        <Img fluid={heroImage.fluid} />
-        <Button isOpen={isOpen} onClick={toggleModal}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="28"
-            height="28"
-            fill="#ABAAB6"
-          >
-            <path d="M4.93 19.07A10 10 0 1 1 19.07 4.93 10 10 0 0 1 4.93 19.07zm1.41-1.41A8 8 0 1 0 17.66 6.34 8 8 0 0 0 6.34 17.66zM13.41 12l1.42 1.41a1 1 0 1 1-1.42 1.42L12 13.4l-1.41 1.42a1 1 0 1 1-1.42-1.42L10.6 12l-1.42-1.41a1 1 0 1 1 1.42-1.42L12 10.6l1.41-1.42a1 1 0 1 1 1.42 1.42L13.4 12z" />
-          </svg>
-        </Button>
-        <button style={{ backgroundColor: 'cornflowerblue', color: '#fafafa' }}>
-          next
-        </button>
-      </StyledModal>
+      <Fragment>
+        <StyledModal
+          allowScroll
+          className="box"
+          isOpen={isOpen}
+          onBackgroundClick={onBackgroundClick}
+          onEscapeKeydown={onBackgroundClick}
+          isLight={isLight}
+        >
+          <MobileHeader
+            title={title}
+            filter={filter}
+            link={link}
+            activeFilter={activeFilter}
+          />
+          <Header>
+            {filters.map(
+              filter =>
+                activeFilter === filter.name && (
+                  <IconContainer key={filter.name}>{filter.icon}</IconContainer>
+                )
+            )}
+            <Title>
+              {title}
+              <SubTitle>{filter}</SubTitle>
+            </Title>
+            <Link href={link} target="_blank" rel="noopener noreferrer">
+              <ModalButton>
+                <ModalIconLight />
+                Visit site
+              </ModalButton>
+            </Link>
+          </Header>
+
+          <Img fluid={heroImage.fluid} />
+          <Button isOpen={isOpen} onClick={toggleModal}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="28"
+              height="28"
+              fill="#ABAAB6"
+            >
+              <path d="M4.93 19.07A10 10 0 1 1 19.07 4.93 10 10 0 0 1 4.93 19.07zm1.41-1.41A8 8 0 1 0 17.66 6.34 8 8 0 0 0 6.34 17.66zM13.41 12l1.42 1.41a1 1 0 1 1-1.42 1.42L12 13.4l-1.41 1.42a1 1 0 1 1-1.42-1.42L10.6 12l-1.42-1.41a1 1 0 1 1 1.42-1.42L12 10.6l1.41-1.42a1 1 0 1 1 1.42 1.42L13.4 12z" />
+            </svg>
+          </Button>
+        </StyledModal>
+      </Fragment>
     )
   }
 }

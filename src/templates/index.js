@@ -11,17 +11,21 @@ const GridContainer = styled.div`
 
 const PostGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 20px;
   padding: 40px 20px;
   max-width: 1120px;
   justify-items: center;
   margin: auto;
 
+  @media (min-width: 400px) {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  }
+
   ${props =>
     props.isScrolled &&
     `
-    padding-top: 108px;
+    padding-top: 112px;
 `};
 
   @media (min-width: 860px) {
@@ -88,10 +92,11 @@ class Index extends Component {
         />
         <GridContainer>
           <PostGrid isScrolled={isScrolled}>
-            {filteredPosts.map(({ node: post }, i) => {
-              console.log(filteredPosts)
+            {filteredPosts.map(({ node: post }, index) => {
               return (
                 <PostCard
+                  posts={filteredPosts}
+                  index={index}
                   isLight={isLight}
                   activeFilter={this.state.activeFilter}
                   key={post.link}
@@ -116,16 +121,26 @@ export const query = graphql`
       sort: { fields: [publishDate], order: DESC }
     ) {
       edges {
+        previous {
+          id
+          title
+          heroImage {
+            title
+          }
+          filter
+          link
+        }
+        next {
+          title
+          heroImage {
+            title
+          }
+          filter
+          link
+        }
         node {
           title
-          slug
           publishDate(formatString: "MMMM DD, YYYY")
-          body {
-            childMarkdownRemark {
-              html
-              excerpt(pruneLength: 80)
-            }
-          }
           heroImage {
             title
             fluid(maxWidth: 1200) {

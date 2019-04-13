@@ -27,19 +27,31 @@ class PostCard extends Component {
     this.toggleModal = this.toggleModal.bind(this)
   }
 
-  toggleModal(e) {
-    this.setState({ isOpen: !this.state.isOpen })
+  toggleModal() {
+    const { index } = this.props
+    this.setState({ isOpen: !this.state.isOpen, activeIndex: index })
   }
 
   render() {
-    const { heroImage, isLight, title, activeFilter, link, filter } = this.props
+    const {
+      heroImage,
+      isLight,
+      title,
+      activeFilter,
+      link,
+      filter,
+      index,
+      posts,
+    } = this.props
     return (
       <Fragment>
         <Modal
+          posts={posts}
           allowScroll
           className="box"
           heroImage={heroImage}
           activeFilter={activeFilter}
+          index={index}
           title={title}
           link={link}
           filter={filter}

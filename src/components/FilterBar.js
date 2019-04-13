@@ -5,11 +5,16 @@ import filters from '../data/filters'
 
 const Container = styled.div`
   width: 100%;
-  padding: 0px;
   background-color: ${props => props.theme.colors.secondaryBackground};
   box-shadow: ${props => props.theme.boxShadow.filterBar};
   margin-top: 0px;
   background-color: ${props => props.theme.colors.filterBar};
+  overflow-x: scroll;
+  padding: 20px 20px 20px 0px;
+
+  @media (min-width: 855px) {
+    padding: 20px;
+  }
 
   ${props =>
     props.isScrolled &&
@@ -32,24 +37,41 @@ const Inner = styled.div`
   font-family: ${props => props.theme.fonts.body};
   font-size: 14px;
   font-weight: 500;
+  transition: all 0.2s ease;
 
   :hover {
     cursor: pointer;
   }
 
   .active {
-    border-bottom: 3px solid ${props => props.theme.colors.accent};
-    color: ${props => props.theme.colors.accent};
+    background-color: ${props => props.theme.colors.primaryLight};
+    color: ${props => props.theme.colors.primaryDark};
   }
 `
 
 const Filter = styled.div`
-  padding: 26px 20px 24px 20px;
+  padding: 10px 18px;
+  border-radius: 24px;
+  white-space: nowrap;
+  margin-left: 0px;
+  margin: 0px 20px 0px 0px;
+
+  :first-child {
+    margin: 0px 20px 0px 20px;
+  }
+
+  :last-child {
+    margin: 0px 20px 0px 0px;
+  }
+
+  @media (min-width: 855px) {
+    margin: 0px;
+  }
 `
 
 const FilterBar = ({ handleFilterClick, activeFilter, isScrolled }) => {
   return (
-    <Container isScrolled={isScrolled}>
+    <Container id="filterBar" isScrolled={isScrolled}>
       <Inner>
         {filters.map(filter => (
           <Filter

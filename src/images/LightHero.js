@@ -2,7 +2,7 @@ import React from 'react'
 
 const LightHero = () => (
   <svg
-    width="380px"
+    // width="380px"
     height="353px"
     viewBox="0 0 460 453"
     version="1.1"

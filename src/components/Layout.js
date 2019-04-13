@@ -11,34 +11,12 @@ const SpecialModalBackground = styled(BaseModalBackground)`
   background: hsla(0, 0%, 20%, 0.94);
 `
 
-const ButtonContainer = styled.div`
-  position: fixed;
-  z-index: 9;
-  top: 50%;
-  left: 0;
-  margin: 0;
-`
-
-const Button = styled.button`
-  background-color: ${props => props.theme.colors.filterBar};
-  box-shadow: ${props => props.theme.boxShadow.default};
-  transform: rotate(270deg);
-  transform-origin: 20px;
-  margin: 0;
-  padding: 12px;
-  color: ${props => props.theme.colors.accent};
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-
-  &:hover {
-    cursor: pointer;
-  }
-`
-
 const lightTheme = {
   colors: {
     body: '#383740',
     primary: '#605DEE',
+    primaryLight: '#eaeafc',
+    primaryDark: '#1916a3',
     accent: '#605DEE',
     accentGrey: '#edecf2',
     secondary: '#44BEA4',
@@ -88,8 +66,10 @@ const lightTheme = {
 
 const darkTheme = {
   colors: {
-    body: '#8FFBE4',
+    body: '#C0BEC9',
+    primaryDark: '#8FFBE4',
     primary: '#1E1D2B',
+    primaryLight: '#1E1D2B',
     secondary: '#44BEA4',
     accent: '#8FFBE4',
     accentGrey: '#53515C',
@@ -145,7 +125,16 @@ class Template extends Component {
     title: 'Dark Theme',
   }
 
-  componentDidMount() {}
+  handleScrollIntoView = () => {
+    const el = document.getElementById('filterBar')
+    const endPosition = el.getBoundingClientRect().top
+
+    return window.scrollTo({
+      top: endPosition,
+      left: 0,
+      behavior: 'smooth',
+    })
+  }
 
   handleClick = () => {
     const isLight = !this.state.isLight
@@ -173,14 +162,14 @@ class Template extends Component {
             backgroundComponent={SpecialModalBackground}
             backgroundProps={isLight}
           >
-            <>
-              <ButtonContainer>
-                <Button onClick={this.handleClick}>{title}</Button>
-              </ButtonContainer>
-              <Hero isLight={isLight} />
-              <div className="siteContent">{this.props.children}</div>
-              <Footer isLight={isLight} />
-            </>
+            <Hero
+              handleScrollIntoView={this.handleScrollIntoView}
+              handleClick={this.handleClick}
+              title={title}
+              isLight={isLight}
+            />
+            <div className="siteContent">{this.props.children}</div>
+            <Footer isLight={isLight} />
           </ModalProvider>
         </ThemeProvider>
         <GlobalStyle />
