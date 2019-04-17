@@ -14,7 +14,7 @@ const Button = styled.button`
   background-color: ${props => props.theme.colors.filterBar};
   box-shadow: ${props => props.theme.boxShadow.default};
   border-radius: 32px;
-  padding: 10px 18px;
+  padding: ${props => (props.isLight ? '10px 20px' : '10px 18px')};
   color: ${props => props.theme.colors.accent};
   margin-left: auto;
   letter-spacing: 0.3px;
@@ -28,11 +28,13 @@ const Button = styled.button`
   }
 `
 
-const ThemeButton = ({ title, handleClick }) => {
+const ThemeButton = ({ title, handleClick, isLight }) => {
   return (
     <div>
       <ButtonContainer>
-        <Button onClick={handleClick}>{title}</Button>
+        <Button isLight={isLight} onClick={handleClick}>
+          {title}
+        </Button>
       </ButtonContainer>
     </div>
   )

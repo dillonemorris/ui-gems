@@ -138,7 +138,11 @@ const Hero = ({ isLight, title, handleClick, handleScrollIntoView }) => {
     <HeroContainer id="target">
       <HeroLeft>
         <Inner>
-          <ThemeButtonMobile handleClick={handleClick} title={title} />
+          <ThemeButtonMobile
+            isLight={isLight}
+            handleClick={handleClick}
+            title={title}
+          />
           <Logo>
             {isLight ? <LightLogo /> : <DarkLogo />}
             <LogoText>UI Gems</LogoText>
@@ -154,7 +158,11 @@ const Hero = ({ isLight, title, handleClick, handleScrollIntoView }) => {
         </Inner>
       </HeroLeft>
       <HeroRight>
-        <ThemeButton handleClick={handleClick} title={title} />
+        <ThemeButton
+          isLight={isLight}
+          handleClick={handleClick}
+          title={title}
+        />
         <IllustrationContainer>
           {isLight ? <LightHero /> : <DarkHero />}
         </IllustrationContainer>
