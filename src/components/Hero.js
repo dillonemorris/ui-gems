@@ -70,7 +70,7 @@ const Heading = styled.h1`
   }
 
   @media (min-width: 855px) {
-    padding-top: 90px;
+    padding-top: 75px;
     padding-right: 20px;
   }
 

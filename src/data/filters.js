@@ -15,16 +15,16 @@ const filters = [
     icon: <SignIn />,
   },
   {
-    name: 'Hero',
+    name: 'Sign Up',
+    icon: <Tables />,
+  },
+  {
+    name: 'Features',
     icon: <Trophy />,
   },
   {
     name: 'Pricing',
     icon: <Pricing />,
-  },
-  {
-    name: 'Features',
-    icon: <Features />,
   },
   {
     name: "FAQ's",
@@ -34,13 +34,14 @@ const filters = [
     name: 'Blog',
     icon: <Blog />,
   },
+
   {
-    name: 'Data Table',
-    icon: <Tables />,
+    name: 'Typography',
+    icon: <Modal />,
   },
   {
-    name: 'Modal',
-    icon: <Modal />,
+    name: 'Illustration',
+    icon: <Features />,
   },
   {
     name: 'Checkout',
