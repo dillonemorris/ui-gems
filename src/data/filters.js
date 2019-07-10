@@ -15,7 +15,7 @@ const filters = [
     icon: <SignIn />,
   },
   {
-    name: 'Sign Up',
+    name: 'Sign up',
     icon: <Tables />,
   },
   {

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import Modal from './Modal'
@@ -70,65 +70,53 @@ const Card = styled.div`
     cursor: pointer;
   }
 `
-class PostCard extends Component {
-  constructor(props) {
-    super(props)
+const PostCard = ({
+  heroImage,
+  isLight,
+  title,
+  activeFilter,
+  link,
+  filter,
+  index,
+  posts,
+}) => {
+  const [isOpen, setOpen] = useState(false)
 
-    this.state = {
-      isOpen: false,
-    }
-
-    this.toggleModal = this.toggleModal.bind(this)
+  const toggleModal = () => {
+    setOpen(!isOpen)
   }
 
-  toggleModal() {
-    const { index } = this.props
-    this.setState({ isOpen: !this.state.isOpen, activeIndex: index })
-  }
-
-  render() {
-    const {
-      heroImage,
-      isLight,
-      title,
-      activeFilter,
-      link,
-      filter,
-      index,
-      posts,
-    } = this.props
-    return (
-      <Fragment>
-        <Modal
-          posts={posts}
-          allowScroll
-          className="box"
-          heroImage={heroImage}
-          activeFilter={activeFilter}
-          index={index}
-          title={title}
-          link={link}
-          filter={filter}
-          isOpen={this.state.isOpen}
-          onBackgroundClick={this.toggleModal}
-          onEscapeKeydown={this.toggleModal}
-          toggleModal={this.toggleModal}
-          isLight={isLight}
+  return (
+    <Fragment>
+      <Modal
+        posts={posts}
+        allowScroll
+        className="box"
+        heroImage={heroImage}
+        activeFilter={activeFilter}
+        index={index}
+        title={title}
+        link={link}
+        filter={filter}
+        isOpen={isOpen}
+        onBackgroundClick={toggleModal}
+        onEscapeKeydown={toggleModal}
+        toggleModal={toggleModal}
+        isLight={isLight}
+      />
+      <Card onClick={toggleModal}>
+        <Img
+          fadeIn={false}
+          style={{ height: '100%' }}
+          imgStyle={{
+            borderRadius: '6px',
+            height: '100%',
+          }}
+          fluid={heroImage.fluid}
         />
-        <Card onClick={this.toggleModal}>
-          <Img
-            fadeIn={false}
-            style={{ height: '100%' }}
-            imgStyle={{
-              borderRadius: '6px',
-              height: '100%',
-            }}
-            fluid={heroImage.fluid}
-          />
-        </Card>
-      </Fragment>
-    )
-  }
+      </Card>
+    </Fragment>
+  )
 }
 
 export default PostCard

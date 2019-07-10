@@ -59,11 +59,10 @@ Edit [`/src/utils/siteConfig.js`](https://github.com/ryanwiemer/gatsby-starter-g
 
 ```js
 module.exports = {
-  siteTitle: 'GCN',
-  siteTitleAlt: 'GCN Gatsby Starter',
+  siteTitle: 'UI Gems',
+  siteTitleAlt: 'UI Gems',
   publisher: 'Publisher named GCN',
-  siteDescription:
-    'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
+  siteDescription: 'Bringing you the best of the best UI designs on the web.',
   siteUrl: 'https://gcn.netlify.com',
   postsPerHomePage: 7,
   postsPerPage: 6,
@@ -74,7 +73,7 @@ module.exports = {
   shareImage: '/logos/share.jpg',
   shareImageWidth: 900,
   shareImageHeight: 600,
-  siteLogo: '/logos/logo-512.png',
+  siteLogo: '/logos/logo.png',
   backgroundColor: '#e9e9e9',
   themeColor: '#121212',
   copyright: 'Copyright © 2018 GCN User',
