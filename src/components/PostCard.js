@@ -12,13 +12,6 @@ const StyledBackgroundImage = styled(BackgroundImage)`
   border-radius: 6px;
   transition: 0.3s all ease;
 
-  &:hover {
-    box-shadow: 0 20px 20px rgba(103, 110, 144, 0.08),
-      0 12px 12px rgba(103, 110, 144, 0.08), 0 4px 4px rgba(103, 110, 144, 0.08),
-      0 2px 2px rgba(103, 110, 144, 0.08);
-    cursor: pointer;
-  }
-
   -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 1s; /* Firefox < 16 */
   -ms-animation: fadein 1s; /* Internet Explorer */

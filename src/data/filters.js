@@ -1,13 +1,13 @@
 import React from 'react'
 import SignIn from '../images/SignIn'
+import Signup from '../images/Signup'
 import Pricing from '../images/Pricing'
-import Trophy from '../images/Trophy'
 import Features from '../images/Features'
 import FAQs from '../images/FAQs'
 import Blog from '../images/Blog'
-import Tables from '../images/Tables'
-import Modal from '../images/Modal'
-import Checkout from '../images/Checkout'
+import Typography from '../images/Typography'
+import Error from '../images/Error'
+import Illustration from '../images/Illustration'
 
 const filters = [
   {
@@ -16,11 +16,11 @@ const filters = [
   },
   {
     name: 'Sign up',
-    icon: <Tables />,
+    icon: <Signup />,
   },
   {
     name: 'Features',
-    icon: <Trophy />,
+    icon: <Features />,
   },
   {
     name: 'Pricing',
@@ -37,15 +37,15 @@ const filters = [
 
   {
     name: 'Typography',
-    icon: <Modal />,
+    icon: <Typography />,
   },
   {
     name: 'Illustration',
-    icon: <Features />,
+    icon: <Illustration />,
   },
   {
-    name: 'Checkout',
-    icon: <Checkout />,
+    name: '404',
+    icon: <Error />,
   },
 ]
 
