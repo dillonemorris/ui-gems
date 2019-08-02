@@ -80,7 +80,7 @@ class Index extends Component {
   }
 
   render() {
-    const { filteredPosts, isScrolled } = this.state
+    const { filteredPosts, isScrolled, activeFilter } = this.state
     const { isLight } = this.props
 
     return (
@@ -98,8 +98,8 @@ class Index extends Component {
                   posts={filteredPosts}
                   index={index}
                   isLight={isLight}
-                  activeFilter={this.state.activeFilter}
-                  key={post.link}
+                  activeFilter={activeFilter}
+                  key={index}
                   link={post.link}
                   filter={post.filter}
                   heroImage={post.heroImage}

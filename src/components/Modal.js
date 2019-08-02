@@ -97,13 +97,13 @@ const Button = styled.button`
   }
 `
 
-const Header = styled.div`
+const Footer = styled.div`
   display: none;
   align-items: center;
   background-color: ${props => props.theme.colors.secondaryBackground};
-  padding: 16px 20px;
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
+  padding: 20px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 
   @media (min-width: 600px) {
     display: flex;
@@ -180,6 +180,7 @@ class PostCardModal extends Component {
       onBackgroundClick,
       toggleModal,
     } = this.props
+
     return (
       <Fragment>
         <StyledModal
@@ -196,7 +197,9 @@ class PostCardModal extends Component {
             link={link}
             activeFilter={activeFilter}
           />
-          <Header>
+
+          <Img fluid={heroImage.fluid} />
+          <Footer>
             {filters.map(
               filter =>
                 activeFilter === filter.name && (
@@ -207,15 +210,13 @@ class PostCardModal extends Component {
               {title}
               <SubTitle>{filter}</SubTitle>
             </Title>
-            <Link href={link} target="_blank" rel="noopener noreferrer">
+            <Link href={link} rel="noopener noreferrer">
               <ModalButton>
                 <ModalIconLight />
-                Visit site
+                <span style={{ marginLeft: '4px' }}>Visit site</span>
               </ModalButton>
             </Link>
-          </Header>
-
-          <Img fluid={heroImage.fluid} />
+          </Footer>
           <Button isOpen={isOpen} onClick={toggleModal}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

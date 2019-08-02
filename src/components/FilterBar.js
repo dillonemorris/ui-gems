@@ -4,25 +4,30 @@ import classNames from 'classnames'
 import filters from '../data/filters'
 
 const Container = styled.div`
+  padding: 20px;
   width: 100%;
-  background-color: ${props => props.theme.colors.secondaryBackground};
-  box-shadow: ${props => props.theme.boxShadow.filterBar};
-  margin-top: 0px;
   background-color: ${props => props.theme.colors.filterBar};
+  display: flex;
+  justify-content: center;
+  box-shadow: ${props => props.theme.boxShadow.filterBar};
   overflow-x: scroll;
-  padding: 20px 20px 20px 0px;
+  -webkit-overflow-scrolling: touch;
 
   @media (min-width: 855px) {
-    padding: 20px;
+    overflow-x: auto;
   }
 
   ${props =>
     props.isScrolled &&
-    `
-    position: fixed;
+    `position: fixed;
     top: 0;
     z-index: 2;
-`};
+    padding-left: 20px;
+
+    @media (min-width: 855px) {
+    padding-left: 34px;
+  }
+    `};
 `
 
 const Inner = styled.div`

@@ -21,11 +21,13 @@ const themes = {
       gray800: '#383740',
       gray900: '#1E1D2B',
       mainBackground: '#605DEE',
+      secondaryBackground: '#fafafa',
       tertiaryBackground: '#FAFAFA',
       btnBackground: '#fff',
       btnColor: '#8E8C9A',
       heroText: '#FFF',
       filterBar: '#fff',
+      cardFooterBackground: '#f7f7f7',
     },
     sizes: {
       maxWidth: '1200px',
@@ -80,6 +82,7 @@ const themes = {
       btnColor: '#C0BEC9',
       heroText: '#8FFBE4',
       filterBar: '#383740',
+      cardFooterBackground: '#383740',
     },
     sizes: {
       maxWidth: '1200px',
