@@ -14,7 +14,7 @@ const Text = styled.p`
   }
 `
 
-const NotFoundPage = () => (
+const NotFound = () => (
   <Layout>
     <Helmet>
       <title>404 - Page Not Found</title>
@@ -31,4 +31,4 @@ const NotFoundPage = () => (
   </Layout>
 )
 
-export default NotFoundPage
+export default NotFound
