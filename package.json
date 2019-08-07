@@ -35,7 +35,7 @@
     "gatsby-transformer-sharp": "^2.1.10",
     "imagemin-mozjpeg": "^8.0.0",
     "inquirer": "^6.2.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "path": "^0.12.7",
     "prismjs": "^1.15.0",
     "react": "^16.8.6",
