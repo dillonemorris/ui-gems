@@ -21,13 +21,11 @@ const NotFound = () => (
       <meta name="description" content="Page not found" />
     </Helmet>
 
-    <Container>
-      <PageTitle>Page Not Found</PageTitle>
-      <Text>
-        Please return <Link to="/">home</Link> or use the menu to navigate to a
-        different page.
-      </Text>
-    </Container>
+    <PageTitle>Page Not Found</PageTitle>
+    <Text>
+      Please return <Link to="/">home</Link> or use the menu to navigate to a
+      different page.
+    </Text>
   </Layout>
 )
 

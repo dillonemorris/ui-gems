@@ -6,7 +6,6 @@ import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
 import PostCard from '../components/PostCard'
 import PageTitle from '../components/PageTitle'
-import Pagination from '../components/Pagination'
 import Container from '../components/Container'
 
 const TagTemplate = ({ data, pageContext }) => {
@@ -55,7 +54,6 @@ const TagTemplate = ({ data, pageContext }) => {
           <PostCard {...post} key={post.id} />
         ))}
       </Container>
-      <Pagination context={pageContext} />
     </Layout>
   )
 }

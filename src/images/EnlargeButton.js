@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ModalIconLight = ({ margin }) => (
+const ModalIcon = ({ margin }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -12,4 +12,4 @@ const ModalIconLight = ({ margin }) => (
   </svg>
 )
 
-export default ModalIconLight
+export default ModalIcon

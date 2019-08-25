@@ -2,63 +2,63 @@
   font-family: 'Object Sans';
   font-style: normal;
   font-weight: 500;
-  src: url('./ObjectSans-Regular.otf') format('otf');
+  src: url('./fonts/ObjectSans-Regular.otf') format('otf');
 }
 
 @font-face {
   font-family: 'Object Sans';
   font-style: italic;
   font-weight: 500;
-  src: url('./ObjectSans-Slanted.otf') format('otf');
+  src: url('./fonts/ObjectSans-Slanted.otf') format('otf');
 }
 
 @font-face {
   font-family: 'Object Sans';
   font-style: bold;
   font-weight: 800;
-  src: url('./ObjectSans-Heavy.otf') format('otf');
+  src: url('./fonts/ObjectSans-Heavy.otf') format('otf');
 }
 
 @font-face {
   font-family: 'Object Sans';
   font-style: italic;
   font-weight: 800;
-  src: url('./ObjectSans-HeavySlanted.otf') format('otf');
+  src: url('./fonts/ObjectSans-HeavySlanted.otf') format('otf');
 }
 
 @font-face {
   font-family: 'Overpass';
   font-style: normal;
   font-weight: 500;
-  src: url('./Overpass-Regular.ttf') format('ttf');
+  src: url('./fonts/Overpass-Regular.ttf') format('ttf');
 }
 @font-face {
   font-family: 'Overpass';
   font-style: normal;
   font-weight: 600;
-  src: url('./Overpass-SemiBold.ttf') format('ttf');
+  src: url('./fonts/Overpass-SemiBold.ttf') format('ttf');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  src: url('./Roboto-Light.ttf') format('ttf');
+  src: url('./fonts/Roboto-Light.ttf') format('ttf');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: url('./Roboto-Regular.ttf') format('ttf');
+  src: url('./fonts/Roboto-Regular.ttf') format('ttf');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  src: url('./Roboto-Medium.ttf') format('ttf');
+  src: url('./fonts/Roboto-Medium.ttf') format('ttf');
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 600;
-  src: url('./Roboto-Bold.ttf') format('ttf');
+  src: url('./fonts/Roboto-Bold.ttf') format('ttf');
 }

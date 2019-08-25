@@ -22,12 +22,12 @@ const themes = {
       gray900: '#1E1D2B',
       mainBackground: '#605DEE',
       secondaryBackground: '#fafafa',
-      tertiaryBackground: '#FAFAFA',
-      btnBackground: '#fff',
+      tertiaryBackground: '#fff',
       btnColor: '#8E8C9A',
       heroText: '#FFF',
       filterBar: '#fff',
-      cardFooterBackground: '#f7f7f7',
+      cardFooterBackground: '#fff',
+      modalIcon: '#1E1D2B',
     },
     sizes: {
       maxWidth: '1200px',
@@ -49,6 +49,8 @@ const themes = {
     boxShadow: {
       default:
         '0 16px 16px rgba(103, 110, 144, 0.05), 0 8px 8px rgba(103, 110, 144, 0.05), 0 4px 4px rgba(103, 110, 144, 0.05), 0 2px 2px rgba(103, 110, 144, 0.05)',
+      hover:
+        '0 16px 16px rgba(103, 110, 144, 0.1), 0 8px 8px rgba(103, 110, 144, 0.1), 0 4px 4px rgba(103, 110, 144, 0.1), 0 2px 2px rgba(103, 110, 144, 0.1)',
       filterBar:
         '0 16px 16px rgba(103, 110, 144, 0.05), 0 8px 8px rgba(103, 110, 144, 0.05), 0 4px 4px rgba(103, 110, 144, 0.05), 0 2px 2px rgba(103, 110, 144, 0.05)',
     },
@@ -78,11 +80,11 @@ const themes = {
       mainBackground: '#252A33',
       secondaryBackground: '#383740',
       tertiaryBackground: '#1E1D2B',
-      btnBackground: '#53515C',
       btnColor: '#C0BEC9',
       heroText: '#8FFBE4',
       filterBar: '#383740',
-      cardFooterBackground: '#383740',
+      cardFooterBackground: '#fff',
+      modalIcon: '#8E8C9A',
     },
     sizes: {
       maxWidth: '1200px',
@@ -103,7 +105,9 @@ const themes = {
     },
     boxShadow: {
       default:
-        '0 12px 12px rgba(103, 110, 144, 0.15), 0 8px 8px rgba(103, 110, 144, 0.15), 0 4px 4px rgba(103, 110, 144, 0.15), 0 2px 2px rgba(103, 110, 144, 0.15)',
+        '0 12px 12px rgba(143, 251, 228, 0.05), 0 8px 8px rgba(143, 251, 228, 0.05), 0 4px 4px rgba(143, 251, 228, 0.05), 0 2px 2px rgba(143, 251, 228, 0.05)',
+      hover:
+        '0 12px 12px rgba(143, 251, 228, 0.2), 0 8px 8px rgba(143, 251, 228, 0.2), 0 4px 4px rgba(143, 251, 228, 0.2), 0 2px 2px rgba(143, 251, 228, 0.2)',
       filterBar:
         '0 16px 16px rgba(143, 251, 228, 0.05), 0 8px 8px rgba(143, 251, 228, 0.05), 0 4px 4px rgba(143, 251, 228, 0.05), 0 2px 2px rgba(143, 251, 228, 0.05)',
     },
