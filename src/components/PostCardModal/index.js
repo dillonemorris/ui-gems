@@ -54,7 +54,7 @@ class PostCardModal extends Component {
               {title}
               <SubTitle>{filter}</SubTitle>
             </Title>
-            <Link href={link} rel="noopener noreferrer">
+            <Link href={link} rel="noopener noreferrer" target="blank">
               <ModalButton>
                 <ModalIcon />
                 <span style={{ marginLeft: '4px' }}>Visit site</span>

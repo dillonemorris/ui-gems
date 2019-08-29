@@ -6,7 +6,7 @@ import DarkLogo from '../../images/DarkLogo'
 const Footer = ({ isLight }) => (
   <Wrapper>
     <Logo>
-      {isLight ? <PurpleLightLogo /> : <DarkLogo />}
+      {isLight ? <PurpleLightLogo width={29} /> : <DarkLogo />}
       <LogoText>UI Gems</LogoText>
     </Logo>
   </Wrapper>

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Checkout = () => (
+const Checkout = ({ width, height }) => (
   <svg
-    width="29px"
-    height="32px"
+    width={width}
+    height={height}
     viewBox="0 0 29 32"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"

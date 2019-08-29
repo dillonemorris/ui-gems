@@ -8,6 +8,11 @@ export const StyledBackgroundImage = styled(BackgroundImage)`
   transition: 0.3s all ease;
   overflow: hidden;
   position: relative;
+  padding: 35%;
+
+   @media (min-width: 855px) {
+    padding: 0;
+  }
 
   &:hover {
     cursor: pointer;
@@ -74,16 +79,16 @@ export const ModalButton = styled.button`
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  border-radius: 6px;
+  border-radius: 32px;
   padding: 6px 12px;
-  border: 2px solid #edecf2;
-  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px solid ${props => props.theme.colors.gray200};
+  background: transparent;
   font-family: ${props => props.theme.fonts.body};
   transition: 0.3s all ease;
 
   &:hover {
     cursor: pointer;
-    background-color: #fafafa;
+    background-color: rgba(250, 250, 250, .5);
   }
 `
 
@@ -93,13 +98,15 @@ export const CardOverlay = styled.div`
   background-color: rgba(255, 255, 255, 0.32);
   justify-content: space-between;
   transition: opacity 0.2s ease;
+  display: none;
+
+  @media (min-width: 855px) {
   display: flex;
   opacity: 0;
 
-  @media (min-width: 855px) {
     ${props =>
-      props.isMouseOver &&
-      `
+    props.isMouseOver &&
+    `
       display: flex;
       opacity: 1;
     `};

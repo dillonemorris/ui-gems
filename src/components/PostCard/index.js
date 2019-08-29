@@ -84,6 +84,7 @@ const PostCard = ({
               onMouseEnter={disableModal}
               onMouseLeave={enableModal}
               href={link}
+              target="blank"
             >
               <ModalButton>
                 <PostCardIcon />

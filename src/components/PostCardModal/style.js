@@ -146,9 +146,9 @@ export const ModalButton = styled.button`
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  border-radius: 6px;
-  padding: 10px 38px;
-  border: 2px solid ${props => props.theme.colors.accentGrey};
+  border-radius: 32px;
+  padding: 10px 26px;
+  border: 2px solid ${props => props.theme.colors.gray200};
   background-color: ${props => props.theme.colors.btnBackground};
   font-family: ${props => props.theme.fonts.body};
   font-size: 14px;
