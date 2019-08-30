@@ -257,7 +257,7 @@ export const LogoText = styled.h3`
 
 export const CallToAction = styled.h3`
   color: ${props => props.theme.colors.highlight};
-  font-size: 20px;
+  font-size: 22px;
   font-family: ${props => props.theme.fonts.secondary};
   letter-spacing: 0.4px;
   display: flex;

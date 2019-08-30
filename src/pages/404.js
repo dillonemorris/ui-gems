@@ -7,7 +7,8 @@ import PurpleLightLogo from '../images/PurpleLightLogo'
 
 const Text = styled.p`
   text-align: center;
-  margin-top: 8px;
+  margin: 8px 0px 24px;
+  font-size: 18px;
   a {
     color: #121212;
   }
@@ -17,6 +18,7 @@ const Text = styled.p`
 
 const Heading = styled.h1`
   text-align: center;
+  font-size: 28px;
   line-height: 1.4;
   margin: 8px 0 0 0;
   a {

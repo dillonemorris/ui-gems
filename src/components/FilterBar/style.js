@@ -6,7 +6,7 @@ export const Container = styled.div`
   background-color: ${props => props.theme.colors.filterBar};
   display: flex;
   justify-content: center;
-  box-shadow: ${props => props.theme.boxShadow.filterBar};
+  border-bottom: 1px solid ${props => props.theme.colors.border};
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
 
@@ -38,8 +38,13 @@ export const Inner = styled.div`
   color: ${props => props.theme.colors.body};
   font-family: ${props => props.theme.fonts.body};
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: .2px;
   transition: all 0.2s ease;
+
+  @media (min-width: 855px) {
+    font-size: 16px;
+  }
 
   :hover {
     cursor: pointer;
@@ -60,7 +65,7 @@ export const Filter = styled.div`
   transition: all 0.3s ease;
 
   :first-child {
-    margin: 0px 20px 0px 20px;
+    margin: 0px 20px 0px 0px;
   }
 
   :last-child {
@@ -69,6 +74,10 @@ export const Filter = styled.div`
 
   @media (min-width: 855px) {
     margin: 0px;
+
+    :last-child {
+    margin: 0px 0px 0px 0px;
+  }
   }
 
   :hover {

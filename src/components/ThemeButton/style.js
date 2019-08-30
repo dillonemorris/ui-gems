@@ -17,6 +17,7 @@ export const Button = styled.button`
   color: ${props => props.theme.colors.accent};
   margin-left: auto;
   letter-spacing: 0.3px;
+  font-size: 16px;
 
   &:hover {
     cursor: pointer;
